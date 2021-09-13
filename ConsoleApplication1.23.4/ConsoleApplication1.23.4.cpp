@@ -20,7 +20,7 @@ int factorial(int x) {
 
 int main()
 {
-	int banknotes[7][2], denBank=100, amount=0, sum=0, cashCollector=1;
+	int banknotes[7][2], denBank=100, amount=0, sum=0;
 	char sign=1;
 	string nominalValue, amountValue, str="RUB";
   fstream ATM_mashing("C:\\Users\\Александр\\Documents\\text for program\\ATM mashing.txt", ios::app);
@@ -32,10 +32,10 @@ int main()
 	  return 1;
   }
   srand(time(nullptr));
-  cout << "\nTo fill the ATM with a cash collector click 1000";
-  cout << "\nElse if click any other.";
-  cin >> cashCollector;
-  if (cashCollector == 1000) {
+  cout << "\nTo fill the ATM with a cash collector click C";
+  cout << "\nElse if click M.";
+  cin >> sign;
+  if (sign=='C') {
 	  do {
 		  for (int i = 0; i < 3; i++) {
 			  banknotes[i][0] = factorial(i) * i * denBank + 100;
@@ -45,11 +45,11 @@ int main()
 			  banknotes[i + 3][1] = rand() % 101+120;
 			  sum += banknotes[i + 3][1];
 		  } 
-		  if (sum > 1000) {
+		 if(sum>1000){
 			  banknotes[5][1] -= (sum - 1000);
 			  sum -= (sum - 1000);
 		  }
-	  } while (sum<1000);
+	  } while ((sum<1000)||(banknotes[5][1]<0));
   }
        //Вводим номиналы банкнот.
       //Заполняем банкомат купюрами.
