@@ -39,17 +39,17 @@ int main()
 	  do {
 		  for (int i = 0; i < 3; i++) {
 			  banknotes[i][0] = factorial(i) * i * denBank + 100;
-			  banknotes[i][1] = rand() % 101+120;
+			  banknotes[i][1] = rand() % 11+165;
 			  sum += banknotes[i][1];
 			  banknotes[i + 3][0] = (factorial(i) * i * denBank + 100) * 10;
-			  banknotes[i + 3][1] = rand() % 101+120;
+			  banknotes[i + 3][1] = rand() % 11+165;
 			  sum += banknotes[i + 3][1];
 		  } 
 		 if(sum>1000){
 			  banknotes[5][1] -= (sum - 1000);
 			  sum -= (sum - 1000);
 		  }
-	  } while ((sum<1000)||(banknotes[5][1]<0));
+	  }while((sum<1000)||(banknotes[5][1]<0));
   }
        //Вводим номиналы банкнот.
       //Заполняем банкомат купюрами.

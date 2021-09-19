@@ -9,8 +9,7 @@ using namespace std;
 
 int main()
 {
-	const int max_x = 95, max_y = 601;
-	int x, y, picture[max_x][max_y];
+	int x, y, streak=0;
 	ofstream file("C:\\Users\\Александр\\Documents\\text for program\\picture.txt");
 	if (file.is_open()) {
 		cout << "\nThe file is open for recording.";
@@ -21,24 +20,15 @@ int main()
 	}
 	srand(time(nullptr));
 	cout << "\nSet the image size X x Y.\n";
-	do{
 	cin >> x >> y;
-	if (x<1 || x>max_x || y<1 || y>max_y) {
-		cout << "\nSpecify the correct image size.";
-	  }
-	}while (x<1 || x>max_x || y<1 || y>max_y);
 	for (int i = 0; i < y; i++) {
 		for (int j = 0; j < x; j++) {
-			picture[i][j] = rand() % 2;
+			streak=rand() % 2;
+			cout << streak;
+			file << streak;
 		}
-	}
-	for (int i = 0; i < y; i++) {
-		for (int j = 0; j < x; j++) {
-			file << picture[i][j];
-			if (j == x - 1) {
-				file << "\n";
-			}
-		}
+		cout << "\n";
+		file << "\n";
 	}
 		return 0;
 }
