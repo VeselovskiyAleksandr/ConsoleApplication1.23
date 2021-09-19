@@ -16,7 +16,8 @@ int main()
 		cout << "\nThe file river is open.";
 	}
 	else {
-		cout << "\nThe file river is not found.";;
+		cout << "\nThe file river is not found.";
+		return 1;
 	}
   if (basket.is_open()) {
 		cout << "\nThe file basket is open.";
@@ -32,7 +33,7 @@ int main()
 	  river.clear();
 	  river.seekg(0);
   while(fishing != 0){
- river.seekg(0, ios::beg);
+ river.seekg(0);
   cout << "\nSpecify the fish you are going to catch.\n";
   cin >> catchF;
   while (!river.eof()) {
